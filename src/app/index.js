@@ -6,10 +6,15 @@ import { Home } from "./components/Home";
 
 class App extends React.Component {
   render() {
+    let lead = "So good so far";
+    let topics = ["Components", "Props"];
+
     return (
       <div>
         <Header/>
-        <Home/>
+        <Home topics={topics}>
+          <p className="lead">{lead}</p>
+        </Home>
       </div>
     );
   }
