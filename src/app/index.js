@@ -12,7 +12,7 @@ class App extends React.Component {
     return (
       <div>
         <Header/>
-        <Home topics={topics}>
+        <Home topics={topics} initialClicks={0}>
           <p className="lead">{lead}</p>
         </Home>
       </div>
