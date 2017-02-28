@@ -11,7 +11,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <Header/>
+        <Header projectName={"Checking out React.js"}/>
         <Home topics={topics} initialClicks={0}>
           <p className="lead">{lead}</p>
         </Home>
