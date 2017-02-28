@@ -12,6 +12,7 @@ export class Home extends React.Component {
     this.setState({
       clicksCount: this.state.clicksCount + 1
     });
+    this.props.clickAlert();
   };
 
   render() {
