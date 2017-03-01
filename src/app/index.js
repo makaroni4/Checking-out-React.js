@@ -25,7 +25,7 @@ class App extends React.Component {
     return (
       <div>
         <Header projectName={"Checking out React.js"} homeLink={this.state.homeLink} />
-        <Home topics={topics} initialClicks={0} changeLink={this.onChangeLinkName.bind(this)}>
+        <Home topics={topics} initialClicks={0} changeLink={this.onChangeLinkName.bind(this)} initialLinkName={this.state.homeLink}>
           <p className="lead">{lead}</p>
         </Home>
       </div>

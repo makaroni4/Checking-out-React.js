@@ -5,7 +5,7 @@ export class Home extends React.Component {
     super();
     this.state = {
       clicksCount: props.initialClicks,
-      homeLink: "Where the heart is"
+      homeLink: props.initialLinkName
     }
   }
 
@@ -18,6 +18,12 @@ export class Home extends React.Component {
 
   onChangeLink() {
     this.props.changeLink(this.state.homeLink);
+  }
+
+  onChangeHandle(event) {
+    this.setState({
+      homeLink: event.target.value
+    })
   }
 
   render() {
@@ -42,6 +48,7 @@ export class Home extends React.Component {
 
           <hr/>
 
+          <input type="text" value={this.state.homeLink} onChange={(event) => this.onChangeHandle(event)} />
           <a onClick={this.onChangeLink.bind(this)} className="btn btn-primary">Change header link</a>
         </div>
       </div>
@@ -53,5 +60,6 @@ Home.propTypes = {
   lead: React.PropTypes.string,
   initialClicks: React.PropTypes.number,
   topic: React.PropTypes.object,
-  children: React.PropTypes.element.isRequired
+  children: React.PropTypes.element.isRequired,
+  initialLinkName: React.PropTypes.string
 }
