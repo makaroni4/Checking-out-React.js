@@ -4,7 +4,8 @@ export class Home extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      clicksCount: props.initialClicks
+      clicksCount: props.initialClicks,
+      homeLink: "Where the heart is"
     }
   }
 
@@ -14,6 +15,10 @@ export class Home extends React.Component {
     });
     this.props.clickAlert();
   };
+
+  onChangeLink() {
+    this.props.changeLink(this.state.homeLink);
+  }
 
   render() {
     let content = "Checking out React.js";
@@ -34,6 +39,10 @@ export class Home extends React.Component {
           <a href="#" onClick={this.onShowMeRandomQuote.bind(this)} className="btn btn-default">Click me</a>
 
           <div>Current clicks: {this.state.clicksCount}</div>
+
+          <hr/>
+
+          <a onClick={this.onChangeLink.bind(this)} className="btn btn-primary">Change header link</a>
         </div>
       </div>
     );

@@ -5,8 +5,17 @@ import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 
 class App extends React.Component {
-  onButtonClick() {
-    alert("Hello!");
+  constructor() {
+    super();
+    this.state = {
+      homeLink: "Home"
+    };
+  }
+
+  onChangeLinkName(newName) {
+    this.setState({
+      homeLink: newName
+    });
   }
 
   render() {
@@ -15,8 +24,8 @@ class App extends React.Component {
 
     return (
       <div>
-        <Header projectName={"Checking out React.js"}/>
-        <Home topics={topics} initialClicks={0} clickAlert={this.onButtonClick}>
+        <Header projectName={"Checking out React.js"} homeLink={this.state.homeLink} />
+        <Home topics={topics} initialClicks={0} changeLink={this.onChangeLinkName.bind(this)}>
           <p className="lead">{lead}</p>
         </Home>
       </div>

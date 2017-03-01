@@ -1,3 +1,6 @@
 # Checking out React.js
 
-`npm start`
+~~~
+npm install
+npm start
+~~~
