@@ -5,14 +5,27 @@ import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      homeLink: "Home"
+    };
+  }
+
+  onChangeLinkName(newName) {
+    this.setState({
+      homeLink: newName
+    });
+  }
+
   render() {
     let lead = "So good so far";
     let topics = ["Components", "Props"];
 
     return (
       <div>
-        <Header projectName={"Checking out React.js"}/>
-        <Home topics={topics} initialClicks={0}>
+        <Header projectName={"Checking out React.js"} homeLink={this.state.homeLink} />
+        <Home topics={topics} initialClicks={0} changeLink={this.onChangeLinkName.bind(this)}>
           <p className="lead">{lead}</p>
         </Home>
       </div>
