@@ -22,7 +22,7 @@ export class Root extends React.Component {
   render() {
     return (
       <div>
-        <Header projectName={"Checking out React.js"} homeLink={this.state.homeLink}>
+        <Header projectName={"Checking out React.js"} homeLink={this.state.homeLink} currentRoute={this.props.location.pathname}>
         </Header>
 
         <div className="container">

@@ -1,6 +1,12 @@
 import React from "react";
 
+import { Link } from "react-router";
+
 export const Header = (props) => {
+  let className = function(route) {
+    return route === props.currentRoute ? "active" : "";
+  }
+
   return(
     <nav className="navbar navbar-inverse">
       <div className="container">
@@ -15,8 +21,17 @@ export const Header = (props) => {
         </div>
         <div id="navbar" className="collapse navbar-collapse">
           <ul className="nav navbar-nav">
-            <li className="active"><a href="#">{props.homeLink}</a></li>
-            <li><a href="#">User</a></li>
+            <li className={className("/welcome")}>
+              <Link to={"/welcome"}>
+                {props.homeLink}
+              </Link>
+            </li>
+
+            <li className={className("/user")}>
+              <Link to={"/user"}>
+                User
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
