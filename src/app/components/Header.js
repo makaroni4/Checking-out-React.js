@@ -16,6 +16,7 @@ export const Header = (props) => {
         <div id="navbar" className="collapse navbar-collapse">
           <ul className="nav navbar-nav">
             <li className="active"><a href="#">{props.homeLink}</a></li>
+            <li><a href="#">User</a></li>
           </ul>
         </div>
       </div>
