@@ -3,7 +3,7 @@ import { browserHistory } from "react-router";
 
 export class User extends React.Component {
     onNavigateHome() {
-        browserHistory.push("/home");
+        browserHistory.push("/welcome");
     }
 
     render() {

@@ -27,8 +27,8 @@ export const Header = (props) => {
               </Link>
             </li>
 
-            <li className={className("/user")}>
-              <Link to={"/user"}>
+            <li className={className("/user/5")}>
+              <Link to={"/user/5"}>
                 User
               </Link>
             </li>
