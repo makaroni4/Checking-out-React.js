@@ -8,7 +8,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      homeLink: "Home"
+      homeLink: "Home",
+      homeMounted: true
     };
   }
 
@@ -18,16 +19,36 @@ class App extends React.Component {
     });
   }
 
+  onChangeHomeMounted() {
+    this.setState({
+      homeMounted: !this.state.homeMounted
+    });
+  }
+
   render() {
     let lead = "So good so far";
     let topics = ["Components", "Props"];
+    let homeCmp = "";
+
+    if(this.state.homeMounted) {
+      homeCmp = <Home topics={topics} initialClicks={0} changeLink={this.onChangeLinkName.bind(this)} initialLinkName={this.state.homeLink}>
+                  <p className="lead">{lead}</p>
+                </Home>;
+    }
 
     return (
       <div>
         <Header projectName={"Checking out React.js"} homeLink={this.state.homeLink} />
-        <Home topics={topics} initialClicks={0} changeLink={this.onChangeLinkName.bind(this)} initialLinkName={this.state.homeLink}>
-          <p className="lead">{lead}</p>
-        </Home>
+
+        {homeCmp}
+
+        {this.state.homeMounted &&
+          <hr/>
+        }
+
+        <div className="container">
+          <button onClick={this.onChangeHomeMounted.bind(this)} className="btn btn-default">Toggle home component</button>
+        </div>
       </div>
     );
   }

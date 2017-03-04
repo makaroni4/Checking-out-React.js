@@ -2,6 +2,8 @@ import React from "react";
 
 export class Home extends React.Component {
   constructor(props) {
+    console.log("constructor");
+
     super();
     this.state = {
       clicksCount: props.initialClicks,
@@ -9,11 +11,47 @@ export class Home extends React.Component {
     }
   }
 
+  componentWillMount() {
+    console.log("componentWillMount");
+  }
+
+  componentDidMount() {
+    console.log("componentDidMount");
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("componentWillReceiveProps:");
+    console.log(nextProps);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("shouldComponentUpdate");
+    console.log(nextProps);
+    console.log(nextState);
+
+    return true;
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log("componentWillUpdate")
+    console.log(nextProps);
+    console.log(nextState);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("componentDidUpdate")
+    console.log(prevProps);
+    console.log(prevState);
+  }
+
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
+  }
+
   onShowMeRandomQuote() {
     this.setState({
       clicksCount: this.state.clicksCount + 1
     });
-    this.props.clickAlert();
   };
 
   onChangeLink() {
